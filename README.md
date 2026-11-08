@@ -72,16 +72,6 @@ sequenceDiagram
     App-->>U: Spoken answer
 ```
 
-### The flow in the app
-
-1. **Home** — the Hearo logo, a 360×360 camera button, and a spoken tutorial button.
-2. **Camera** — a full-screen `expo-camera` view. Tap anywhere to take a photo; use the flip button to switch cameras.
-3. **Analysis** — the captured photo appears at the top. From here you can:
-   - tap the photo to retake it,
-   - press **Analyze** for a general scene description,
-   - press **Record**, speak a question, and stop; Hearo transcribes, speaks your question, analyzes the image with that question, and speaks the answer,
-   - drag the speed slider to make speech slower or faster,
-   - tap the "You said" or "AI Analysis" cards to replay them.
 
 ## Tech Stack
 
@@ -299,31 +289,3 @@ npm run ios        # native iOS build (macOS only)
 npm run web        # browser preview
 ```
 
-**Backend URL tips for local development:**
-
-| Where the app runs | `EXPO_PUBLIC_BACKEND_URL` |
-| --- | --- |
-| iOS simulator | `http://localhost:8080` |
-| Android emulator | `http://10.0.2.2:8080` |
-| Physical device on the same Wi-Fi | `http://YOUR_COMPUTER_LAN_IP:8080` |
-| Deployed backend | Your Cloud Run service URL |
-
-If Expo does not pick up a new `.env` file, restart with a cleared cache:
-
-```bash
-npx expo start -c
-```
-
-## Usage
-
-1. **Open Hearo** and tap the large purple camera button.
-2. **Frame the scene** and tap anywhere on the camera preview to take a photo.
-3. On the analysis screen, tap **🔍 Analyze** to run a scene analysis and hear the result.
-4. To ask something specific, tap **🎤 Record**, speak your question, then tap **⏹️ Stop**. Hearo will:
-   - transcribe your speech,
-   - speak the transcription back,
-   - send the image and your question to Gemini,
-   - speak the answer.
-5. Drag the **speed slider** left or right to change speech speed between 0.7× and 1.2×. The new speed is announced aloud.
-6. Tap **"You said"** or **"AI Analysis"** to replay either card. Tap the photo at the top to return to the camera and capture something new.
-7. Tap **🎧 How to Use** on the home screen at any time for a spoken walkthrough.
